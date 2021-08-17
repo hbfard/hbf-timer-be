@@ -1,0 +1,23 @@
+@hostname = localhost
+@port = 5001
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+
+@apikey = a208d8359ae24230ba70e4d1328c7a91
+
+@mac = 00:15:5d:36:01:d1
+@output = calc
+
+###
+GET http://{{host}}/api/v1/user-activity/get-items/{{mac}}/{{output}}
+X-API-KEY: {{apikey}}
+
+###
+POST http://{{host}}/api/v1/user-activity/save
+X-API-KEY: {{apikey}}
+Content-Type: {{contentType}}
+
+{
+  "mac" : "00:15:5d:36:01:d1",
+  "savedSeconds" : 7
+}
